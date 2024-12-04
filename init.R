@@ -66,6 +66,37 @@ print(sd(Stats$PP_2017))
 
 
 
+# 2
+# Part a: Normal Distribution Analysis for AC_2014_16
+# Calculate mean and standard deviation
+mu <- mean(Stats$AC_2014_16)
+sigma <- sd(Stats$AC_2014_16)
+
+# Calculate proportion between $320 and $350
+lower <- 320
+upper <- 350
+prop <- pnorm(upper, mu, sigma) - pnorm(lower, mu, sigma)
+
+# Print results
+print(paste("Mean (μ):", round(mu, 4)))
+print(paste("Standard Deviation (σ):", round(sigma, 4)))
+print(paste("Proportion between $320 and $350:", round(prop, 4)))
+
+# Part b: Create scatterplot of AC vs PP
+# Create the plot
+plot(Stats$AC_2014_16, Stats$PP_2014_16,
+    xlab = "Assembly Cost (AC)",
+    ylab = "Parts Price (PP)",
+    main = "Scatterplot of AC vs PP (2014-2016)",
+    pch = 16, # solid circles
+    col = "blue"
+)
+
+# Add a grid for better readability
+grid()
+
+# Optionally add a trend line
+abline(lm(Stats$PP_2014_16 ~ Stats$AC_2014_16), col = "red", lwd = 2)
 
 # D. Find proportion of days with PP ≥ 35.4%
 good_pp_days <- sum(Stats$PP_2017 >= 35.4)
