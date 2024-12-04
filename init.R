@@ -94,8 +94,6 @@ sample_sd <- sd(Stats$AC_2014_16)
 t_value <- qt(0.975, df = n - 1) # 0.975 because we want two-tailed 95%
 # 0.05/2 = 0.025 => 0.95 + 0.025 == 0.975 for one side in two tailed
 
-
-
 # Calculate margin of error
 margin_of_error <- t_value * (sample_sd / sqrt(n))
 
